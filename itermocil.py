@@ -193,6 +193,14 @@ class Itermocil(object):
             for p in range(3, num_panes+1):
                 self.applescript.append(create_pane(p-1, p, "horizontal"))
 
+        elif layout == 'main-vertical-multi':
+            self.applescript.append(create_pane(1, 2, "vertical"))
+            for p in range(num_panes-2, num_panes):
+                self.applescript.append(create_pane(1, p, "horizontal"))
+
+            for p in range(num_panes, num_panes+1):
+                self.applescript.append(create_pane(2, p, "horizontal"))
+
         # 'main-vertical-flipped' layouts have one right pane that is full height,
         # and then split the remaining panes horizontally down the left
         elif layout == 'main-vertical-flipped':
